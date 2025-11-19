@@ -1,0 +1,38 @@
+<div class="container my-4">
+  <h2 class="text-center py-3 mb-4" style="background:#cfa9a9;">Actores de Hollywood</h2>
+
+  <div class="row g-4">
+    
+    <div class="col-12 col-lg-7">
+      <table class="table table-hover align-middle">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Premio</th>
+            <th>Año nacimiento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of actores" (click)="onSelected(a)" style="cursor:pointer">
+            <td>{{ a.id }}</td>
+            <td>
+              <a class="link-primary text-decoration-none">{{ a.name }}</a>
+            </td>
+            <td>{{ a.main_award }}</td>
+            <td>{{ a.born_year }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="mt-2">
+        La edad promedio de los actores es de: <b>{{ edadPromedio }}</b> años
+      </p>
+    </div>
+
+    <!-- Detalle (Punto 3) -->
+    <div class="col-12 col-lg-5" *ngIf="selected">
+      <app-actor-detail [actor]="selected"></app-actor-detail>
+    </div>
+  </div>
+</div>
